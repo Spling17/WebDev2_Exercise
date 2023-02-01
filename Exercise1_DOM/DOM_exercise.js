@@ -31,8 +31,8 @@ paragraphP.appendChild(paragraphA);
   A sentence can be assumed to be a string of text terminated with a period (.)
 */
 
-// const texTerminated = paragraphP.innerHTML.split('.');
-// paragraphP.innerHTML = texTerminated.join('.<br/>');
+const texTerminated = paragraphP.innerHTML.split('.');
+paragraphP.innerHTML = texTerminated.join('.<br/>');
 
 /* 
   Exercise 04
@@ -41,9 +41,9 @@ paragraphP.appendChild(paragraphA);
   You can assume that all words are separated by one singular whitespace.
 */
 
-// const numH1 = querySelector('h1');
-// document.numH1.textContent = numH1.length;
-// paragraphP.innerText 
+const numH1 = querySelector('h1');
+document.numH1.textContent = numH1.length;
+paragraphP.innerText 
 
 
 /*
@@ -52,7 +52,6 @@ paragraphP.appendChild(paragraphA);
   Replace all question marks (?) with thinking faces (🤔) and exclamation marks (!) with astonished faces (😲) 
 */
 
-/*
 const wordsArr = paragraph.innerHTML.split(" ");
 
 const newWordArr = wordsArr.map((word) => {
@@ -66,4 +65,3 @@ const newWordArr = wordsArr.map((word) => {
 });
 console.log(newWordArr);
 paragraph.innerHTML = newWordArr.join(" ");
-*/
