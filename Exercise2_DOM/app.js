@@ -17,10 +17,10 @@ const addNote = (e) => {
   const list = document.getElementById('list')
   const li = document.createElement('li')
   li.innerHTML = `<p>${inputVal}</p>
-                  <p>
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i
-                    </p>
-                    <input type="text" class="edit-note">`
+    <p>
+    <i class="fa fa-pencil-square-o" aria-hidden="true"></i><i class="fa fa-times" aria-hidden="true"></i
+    </p>
+    <input type="text" class="edit-note">`
   list.appendChild(li)
   input.value = ''
 }
