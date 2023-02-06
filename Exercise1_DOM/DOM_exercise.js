@@ -20,10 +20,14 @@ paragraphP.innerHTML = paragraphP.textContent.split(" ").map(word => {
   (http://officeipsum.com/)
 */
 
-const paragraphA = document.createElement('a');
-paragraphA.innerHTML = '<a href=`http://officeipsum.com/`> Officeipsum</a>';
-paragraphP.appendChild(paragraphA);
+// const paragraphA = document.createElement('a');
+// paragraphA.innerHTML = '<a href=`http://officeipsum.com/`> Officeipsum</a>';
+// paragraphP.appendChild(paragraphA);
 
+const link = document.createElement("a");
+link.href = "http://officeipsum.com"
+link.innerText = "Link to office ipsum"
+document.body.appendChild(link)
 /*
   Exercise 03
   -----------
@@ -31,8 +35,10 @@ paragraphP.appendChild(paragraphA);
   A sentence can be assumed to be a string of text terminated with a period (.)
 */
 
-const texTerminated = paragraphP.innerHTML.split('.');
-paragraphP.innerHTML = texTerminated.join('.<br/>');
+paragraphP.innerHTML = paragraphP.innerHTML.split(".").join(".</p><p>")
+
+// const texTerminated = paragraphP.innerHTML.split('.');
+// paragraphP.innerHTML = texTerminated.join('.<br/>');
 
 /* 
   Exercise 04
@@ -41,9 +47,14 @@ paragraphP.innerHTML = texTerminated.join('.<br/>');
   You can assume that all words are separated by one singular whitespace.
 */
 
-const numH1 = querySelector('h1');
-document.numH1.textContent = numH1.length;
-paragraphP.innerText 
+const wordCount = paragraphP.innerText.split(" ").length
+const wordCountEl = document.createElement("div")
+wordCountEl.innerText = `${wordCount} words`
+document.body.insertBefore(wordCountEl, paragraphP);
+
+// const numH1 = querySelector('h1');
+// document.numH1.textContent = numH1.length;
+// paragraphP.innerText 
 
 
 /*
@@ -52,16 +63,19 @@ paragraphP.innerText
   Replace all question marks (?) with thinking faces (🤔) and exclamation marks (!) with astonished faces (😲) 
 */
 
-const wordsArr = paragraph.innerHTML.split(" ");
+paragraphP.innerHTML = paragraphP.innerHTML.replaceAll("?","🤔").
+replaceAll("!","😲")
 
-const newWordArr = wordsArr.map((word) => {
-	if (word.includes("?")) {
-		word = word.replace("?", "🤔");
-	}
-	if (word.includes("!")) {
-		word = word.replace("!", "😲");
-	}
-	return word;
-});
-console.log(newWordArr);
-paragraph.innerHTML = newWordArr.join(" ");
+// const wordsArr = paragraph.innerHTML.split(" ");
+
+// const newWordArr = wordsArr.map((word) => {
+// 	if (word.includes("?")) {
+// 		word = word.replace("?", "🤔");
+// 	}
+// 	if (word.includes("!")) {
+// 		word = word.replace("!", "😲");
+// 	}
+// 	return word;
+// });
+// console.log(newWordArr);
+// paragraph.innerHTML = newWordArr.join(" ");
