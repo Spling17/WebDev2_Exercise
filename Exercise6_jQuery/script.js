@@ -9,4 +9,41 @@
 
 $(document).ready(function () {
     // code goes here
+    $('#addTask').on('click',function(e){
+        const text = 
+    })
+
+    // $('#addTask').on('click', function (e) {
+    //     const text = $('.textBox').val()
+    //     if (!text) {
+    //       alert('Error: Please enter a task first')
+    //       return
+    //     } else {
+    //       alert(`New Task: ${text}`)
+    //       const newTask = $(
+    //         `<div class="task">${text}
+    //           <button>
+    //             <i class="fa-solid fa-check"></i>
+    //             <i class="fa-solid fa-trash-can"></i>
+    //           </button>
+    //         </div>`
+    //       )
+    //       $('.notCompleted').append(newTask)
+    //     }
+    
+    //     $('.fa-check').click(function () {
+    //       const checkedTask = $(this).closest('.task')
+    //       checkedTask.fadeOut(1000, function () {
+    //         checkedTask.hide().appendTo('.completed').fadeIn(1000)
+    //       })
+    //     })
+    
+    //     $('.fa-trash-can').click(function () {
+    //       const deleteTask = $(this).closest('.task')
+    //       deleteTask.fadeOut(1000, function () {
+    //         deleteTask.remove()
+    //       })
+    //     })
+    //     $('.textBox').val('')
+
 });
