@@ -8,12 +8,17 @@
 // • Differentiate type aliases from interfaces
 
 const ExerciseTwo = () => {
-    // ======== Exercise 2.1 ========
-    // Instructions:
+    // ======== Exercise 2.1 ======== ?
     // • Create an interface `CartItem` and replace the param's type with it
     // • Make variantId optional
 
-    function addToCart(item: { id: number; title: string; variantId: number }) {
+    interface CartItem{
+        id: number; 
+        title: string; 
+        variantId?: number
+    }
+
+    function addToCart(item: CartItem) {
         console.log('[Exercise 2.1]', `Adding "${item.title}" to cart.`)
     }
 
@@ -24,6 +29,11 @@ const ExerciseTwo = () => {
     // • Create and implement an interface on `Person` to ensure it always has accessible
     //   `name` and `age` member properties.
 
+    interface Person {
+        name: string;
+        age: number;
+    }
+
     class Person {
         constructor(public name: string, public age: number) { }
     }
@@ -32,7 +42,7 @@ const ExerciseTwo = () => {
 
     console.log('[Exercise 2.2]', `${jane.name} is ${jane.age} years old.`)
 
-    // ======== Exercise 2.3 ========
+    // ======== Exercise 2.3 ======== ???
     // Instructions:
     // • Create an interface `Coords` that has numeric `latitude` and `longitude` properties.
     // • Extend the existing interface `City` (without modifying it inline) by adding a
@@ -44,6 +54,13 @@ const ExerciseTwo = () => {
         name: string
     }
     // [/do not edit]
+
+    interface Coords extends City {
+        coords: {
+            latitude: number;
+            longitude: number;
+        }
+    }
 
     const montreal = {
         coords: {
@@ -61,7 +78,7 @@ const ExerciseTwo = () => {
         name: 'Tampa',
     }
 
-    function getCityInfo(city: City) {
+    function getCityInfo(city: Coords) {
         const coords = `(${city.coords.latitude.toFixed(
             3
         )}, ${city.coords.longitude.toFixed(3)})`
@@ -73,7 +90,7 @@ const ExerciseTwo = () => {
         `${getCityInfo(montreal)} \n\n ${getCityInfo(tampa)}`
     )
 
-    // ======== Exercise 2.4 ========
+    // ======== Exercise 2.4 ======== ???
     // The purpose of this exercise is simply to illustrate a use of `readonly`
     // No solution needed
 
@@ -115,15 +132,15 @@ const Exercise3 = () => {
     // • Add explicit parameter types and return type
     // • Fix any errors resulting from invalid types
 
-    function add(x, y) {
+    function add(x: number, y: number): number {
         return x + y
     }
 
-    function sumArray(numbers) {
+    function sumArray(numbers:number[]) {
         return numbers.reduce(add, 0)
     }
 
-    const someSum = sumArray(['3', '6', '9'])
+    const someSum = sumArray([3, 6, 9])
 
     console.log('[Exercise 3.1]', `3 + 6 + 9 === ${someSum}`)
 
@@ -134,7 +151,7 @@ const Exercise3 = () => {
 
     const bankAccount = {
         money: 0,
-        deposit(value, message) {
+        deposit(value: number, message?: string) {
             this.money += value
             if (message) {
                 console.log(message)
@@ -152,12 +169,12 @@ const Exercise3 = () => {
     // Instructions:
     // • Add type annotations wherever possible
 
-    function computeScore(word) {
+    function computeScore(word: string) {
         const letters = word.toUpperCase().split('')
         return letters.reduce((accum: number, curr: string) => (accum += getPointsFor(curr)), 0)
     }
 
-    function getPointsFor(letter) {
+    function getPointsFor(letter:String) {
         const lettersAndPoints: [string, number][] = [
             ['AEOIULNRST', 1],
             ['DG', 2],
@@ -169,7 +186,7 @@ const Exercise3 = () => {
         ]
 
         return lettersAndPoints.reduce((computedScore, pointsTuple) => {
-            const [letters, score]: [] = pointsTuple
+            const [letters, score]: [string, number] = pointsTuple
             if (letters.split('').find((ll) => ll === letter)) {
                 return (computedScore += score)
             }
@@ -184,7 +201,7 @@ const Exercise3 = () => {
     // • Add explicit parameter types and return types
     // • Add a default greeting: "hello"
 
-    function greet(greeting) {
+    function greet(greeting: string = 'hello'): string  {
         return greeting.toUpperCase()
     }
 
@@ -198,7 +215,7 @@ const Exercise3 = () => {
     // • Add parameter type annotation
     // • Even though this function doesn't return, add an explicit return type
 
-    function layEggs(quantity, color) {
+    function layEggs(quantity: number = 0, color: string = 'white'): void {
         console.log(
             `[Exercise 3.5] You just laid ${quantity} ${color} eggs. Good job!`
         )
@@ -215,17 +232,17 @@ const Exercise3 = () => {
     let multiply: (val1: number, val2: number) => number
     let capitalize: (val: string) => string
 
-    multiply = function (value: string): string {
+    capitalize = function (value: string): string {
         return `${value.charAt(0).toUpperCase()}${value.slice(1)}`
     }
 
-    capitalize = function (x: number, y: number): number {
+    multiply = function (x: number, y: number): number {
         return x * y
     }
 
     console.log('[Exercise 3.6]', capitalize(`nifty ${multiply(5, 10)}`))
 
-    // ======== Exercise 3.7 ========
+    // ======== Exercise 3.7 ========  ???
     // Currently, our function `pushToCollection` accepts *any* item and adds it,
     // (indiscriminantly) to *any* kind of array.
     //
@@ -245,7 +262,7 @@ const Exercise3 = () => {
     const numberCollection: number[] = []
     const stringCollection: string[] = []
 
-    function pushToCollection(item, collection) {
+    function pushToCollection(item:any , collection: (string|number)[]) {
         collection.push(item)
         return collection
     }
