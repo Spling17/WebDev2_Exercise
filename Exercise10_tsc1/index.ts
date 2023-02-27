@@ -45,74 +45,79 @@ const exerciseOne = () => {
     // let isMark: boolean;
 
     let isMark = true;
-    //boolean
+    //boolean is not Value
 
     console.log('[Exercise 1.3]', `${isMark ? 'Oh, hi Mark' : 'Who are you?'}`);
 
-//     // ======== Exercise 1.4 ========
-//     // Instructions:
-//     // • Add type annotations (as explicit as possible)
-//     // • Fix errors (if applicable)
+    // ======== Exercise 1.4 ========
+    // Instructions:
+    // • Add type annotations (as explicit as possible)
+    // • Fix errors (if applicable)
 
-//     const integer = 6;
-//     const float = 6.66;
-//     const hex = 0xf00d;
-//     const binary = 0b1010011010;
-//     const octal = 0o744;
-//     const negZero = -0;
-//     const actuallyNumber = NaN;
-//     const largestNumber = Number.MAX_VALUE;
-//     const mostBiglyNumber = Infinity;
+    const integer = 6;
+    const float = 6.66;
+    const hex = 0xf00d;
+    const binary = 0b1010011010;
+    const octal = 0o744;
+    const negZero = -0;
+    const actuallyNumber = NaN;
+    const largestNumber = Number.MAX_VALUE;
+    const mostBiglyNumber = Infinity;
+    
+    // change any => number
+    const members: number[] = [
+        integer,
+        float,
+        hex,
+        binary,
+        octal,
+        negZero,
+        actuallyNumber,
+        largestNumber,
+        mostBiglyNumber
+    ];
 
-//     const members: number[] = [
-//         integer,
-//         float,
-//         hex,
-//         binary,
-//         octal,
-//         negZero,
-//         actuallyNumber,
-//         largestNumber,
-//         mostBiglyNumber
-//     ];
+    members[0] = 12345;
+    //remove ''
 
-//     members[0] = 12345;
+    console.log('[Exercise 1.4]', members);
 
-//     console.log('[Exercise 1.4]', members);
+    // ======== Exercise 1.5 ========
+    // Instructions:
+    // • Add type annotations (as explicit as possible)
+    // • Fix errors (if applicable)
 
-//     // ======== Exercise 1.5 ========
-//     // Instructions:
-//     // • Add type annotations (as explicit as possible)
-//     // • Fix errors (if applicable)
+    const sequence:number[] = Array.from(Array(10).keys());
+    const animals:string[] = ['pangolin', 'aardvark', 'echidna', 'binturong'];
+    const stringsAndNumbers:(string|number)[] = [1, 'one', 2, 'two', 3, 'three'];
+    //[number,string,number,string,number,string]
+    const allMyArrays: (string|number)[][] = [sequence, animals, stringsAndNumbers];
+    // const allMyArrays2: Array<Array<number|string>> = [sequence, animals, stringsAndNumbers]; <=Generic
+    // string|number
 
-//     const sequence:number[] = Array.from(Array(10).keys());
-//     const animals:string[] = ['pangolin', 'aardvark', 'echidna', 'binturong'];
-//     const stringsAndNumbers:(string|number)[] = [1, 'one', 2, 'two', 3, 'three'];
-//     const allMyArrays: (string|number)[][] = [sequence, animals, stringsAndNumbers];
-//     // const allMyArrays2: Array<Array<number|string>> = [sequence, animals, stringsAndNumbers];
+    console.log('Exercise 1.5', allMyArrays);
 
-//     console.log('Exercise 1.5', allMyArrays);
+    // ======== Exercise 1.6 ========
+    // Goal:
+    // • Add type annotations (as explicit as possible)
+    // • Fix errors (if applicable)
 
-//     // ======== Exercise 1.6 ========
-//     // Goal:
-//     // • Add type annotations (as explicit as possible)
-//     // • Fix errors (if applicable)
+    // We want to represent an inventoryItem as a structure where
+    // the first entry is the item name and the second is the quantity
 
-//     // We want to represent an inventoryItem as a structure where
-//     // the first entry is the item name and the second is the quantity
+    const inventoryItem:[string, number] = ['fidget wibbit', 11];
+    //add [string, number]
 
-//     const inventoryItem:[string, number] = ['fidget wibbit', 11];
+    // later we destructure it
+    const [name, qty] = inventoryItem;
 
-//     // later we destructure it
-//     const [name, qty] = inventoryItem;
+    const msg = addInventory(name, qty);
 
-//     const msg = addInventory(name, qty);
+    console.log('[Exercise 1.6]', msg);
 
-//     console.log('[Exercise 1.6]', msg);
-
-//     function addInventory(name: string, quantity: number): string {
-//         return `Added ${quantity} ${name}s to inventory.`;
-    // }
+    function addInventory(name: string, quantity: number): string {
+        return `Added ${quantity} ${name}s to inventory.`;
+    }
 }
 
 exerciseOne()
